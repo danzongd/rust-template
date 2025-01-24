@@ -1,22 +1,6 @@
-#[allow(dead_code)]
-#[derive(Debug)]
-struct Person {
-    name: String,
-    age: u8,
-    sex: String
-}
-
-impl Person {
-    fn new(name: String, age: u8, sex: String) -> Person {
-        Person {
-            name,
-            age,
-            sex
-        }
-    }
-}
+use rayon::prelude::*;
 
 fn main() {
-    let a = Person::new("John".to_string(), 25, "male".to_string());
-    println!("{:#?}", a);
+    let sum: u64 = (0..=10).into_par_iter().sum();
+    println!("{}", sum);
 }
